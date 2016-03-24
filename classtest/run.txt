@@ -1,0 +1,12 @@
+print "print"
+
+@loop
+if btrig==1 then y=y-1
+if btrig==2 then y=y+1
+'if btrig==4 then x=x-1
+'if btrig==8 then x=x+1
+
+wait 1
+gcls
+gbox x,y,x+10,y+10,3
+goto @loop
