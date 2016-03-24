@@ -14,11 +14,7 @@
 using namespace std;
 stringstream ss;
 
-typedef std::chrono::high_resolution_clock Clock;
-long int getTime();
-auto SBStartTime = Clock::now();
-time_t timer;
-struct tm y2k = { 0 };
+
 
 //Type
 //1 func or return value (0-1)
@@ -38,6 +34,8 @@ extern const char globmlist[] = { '.', '%', '*', '+', '-', '/', '~', '!', '0', '
 extern const int globmnum = 17 + 26; //(removed '(' and ')')
 extern const char globgluechars[] = { '+', '-', '*', '%', ',', '=', '%', '(', ')', '!', '~' };
 extern const int globgnum = 11;
+
+
 
 //Small enough list to hard code
 //extern const std::string globgluewords[] = { "AND", "OR", "NOT", "XOR" };
@@ -59,12 +57,14 @@ extern bool globRESULT = 0;
 hashtable Variable;
 hashtables Strings;
 
+
+
 extern int ug;
 extern std::string gFormulaToParse;
 extern int gFormulaToParsep = 0;
 std::string getParenthesis(std::string, int);
 
-int const SBarrSize = 10;
+int const SBarrSize = 1000000;
 std::string filePath = "run.txt";
 //std::string filePath = "RPRG000.PTC";
 int line;
@@ -81,6 +81,7 @@ int u;
 char uc;
 bool synerr;
 int isEqualsCheck;
+
 
 
 int gosub[256];
@@ -111,6 +112,8 @@ int getElem(std::string);
 std::string caps(std::string);
 std::string numToString(double);
 int stringToNum(std::string);
+
+
 
 //"get"
 double solve(std::string);
@@ -164,7 +167,11 @@ std::string SBarr[SBarrSize];
 int SBarrLine[SBarrSize];
 
 
-
+typedef std::chrono::high_resolution_clock Clock;
+long int getTime();
+auto SBStartTime = Clock::now();
+time_t timer;
+struct tm y2k = { 0 };
 
 //Petit computer graphics related functions
 void PRINT(std::string);
@@ -176,6 +183,8 @@ void GLINE(std::string);
 void GBOX(std::string);
 void GCIRCLE(std::string);
 void GPSET(std::string);
+
+
 
 //OpenGL functions
 void Draw();

@@ -80,6 +80,7 @@ Changelog;
 -' instead of REM
 -variables strings and labels can now have numbers in their names
 -variable arrays and string arrays added
+-"Overall improved system stability." (fixed issue that randomly broke the program due to an array not being large enough)
 
 
 Running 3DED;
