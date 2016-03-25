@@ -4,7 +4,6 @@
 
 
 
-
 int main(int iArgc, char** cppArgv)
 {
 	setDefaultArrs();
@@ -17,7 +16,7 @@ int main(int iArgc, char** cppArgv)
 
 	//cout << solve("!(0)") << endl;
 
-	//cout << getIndex("GPSET") << endl;
+	//cout << getIndex("ACLS") << endl;
 
 	//system("pause");
 	//-------------------------------------------------------
@@ -231,7 +230,7 @@ int main(int iArgc, char** cppArgv)
 
 	//std::cout << "\nPrint program array\n\n";
 	//printPRG(SBarr, pLength, SBarrLine);
-	//cout << Variable.FindVal("@LOOP");
+	//cout << getIndex("DIM") << endl;
 	//cout << "\nDone\n";
 	//system("pause");
 
@@ -291,13 +290,13 @@ int interpretMain(int &line){
 
 	case 483://PNLSTR
 		addline++;
-		cout << "Unsupported command PNLSTR\n";
+		//cout << "Unsupported command PNLSTR\n";
 		synerr = 0;
 		break;
 
 	case 440:
 		addline++;
-		cout << "Unsupported command LOCATE\n";
+		//cout << "Unsupported command LOCATE\n";
 		synerr = 0;
 		break;
 
@@ -325,6 +324,12 @@ int interpretMain(int &line){
 	synerr = 0;
 	addline++; }
 	break;
+
+	case 218://DIM
+		addline++;
+		//cout << "Unsupported command DIM\n";
+		synerr = 0;
+		break;
 
 
 	//runtime
@@ -526,7 +531,15 @@ int interpretMain(int &line){
 		addline++; sbINPUT(SBarr[line + 1]); synerr = 0;
 		break;
 
+	//Graphics
+	case 291://ACLS
+		CLS();
+		GCOLOR(0);
+		GCLS(0);
+		synerr = 0;
+		break;
 
+	//Graphics screen
 	case 454://GCOLOR
 
 		GCOLOR(solve(SBarr[line + 1]));
@@ -554,12 +567,17 @@ int interpretMain(int &line){
 		synerr = 0;
 		break;
 
-	case 387:
+	case 387: //GPSET
 		addline++;
 		GPSET(SBarr[line + 1]);
 		synerr = 0;
 		break;
 
+	case 356://GPAGE
+		addline++;
+		//cout << "Unsupported command GPAGE\n";
+		synerr = 0;
+		break;
 
 		//syntax error check
 		//if (synerr){ ret = 2; break; }
@@ -573,9 +591,6 @@ int interpretMain(int &line){
 	if (ret){ cout << "\nEND\n"; system("pause"); }
 	return synerr;
 }
-
-
-
 
 //switch (ret){
 //case 0:
@@ -1074,13 +1089,13 @@ long int getTime(){
 
 std::string getTimeString(){
 	time_t rawtime;
-	struct errno_t * timeinfo;
+	struct tm * timeinfo;
 	char buffer[80];
 
 	time(&rawtime);
-	//timeinfo = localtime_s(&rawtime);
+	timeinfo = localtime(&rawtime);
 
-	//strftime(buffer, 80, "%I:%M:%S", timeinfo);
+	strftime(buffer, 80, "%I:%M:%S", timeinfo);
 	std::string str(buffer);
 
 
@@ -1094,9 +1109,9 @@ std::string getDateString(){
 	char buffer[80];
 
 	time(&rawtime);
-	//timeinfo = localtime(&rawtime);
+	timeinfo = localtime(&rawtime);
 
-	//strftime(buffer, 80, "%Y/%m/%d", timeinfo);
+	strftime(buffer, 80, "%Y/%m/%d", timeinfo);
 	std::string str(buffer);
 
 

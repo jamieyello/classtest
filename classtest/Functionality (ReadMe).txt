@@ -81,6 +81,7 @@ Changelog;
 -variables strings and labels can now have numbers in their names
 -variable arrays and string arrays added
 -"Overall improved system stability." (fixed issue that randomly broke the program due to an array not being large enough)
+-ACLS
 
 
 Running 3DED;
@@ -90,8 +91,8 @@ variables with numbers in the name need to work [o]
 arrays [o]
 string arrays [o]
 GPSET [o]
-BUTTON() and BTRIG() []
-DIM []
+BUTTON() and BTRIG() [x]
+DIM [x]
 ?"text []
 ?var []
 ?var var string$ var []

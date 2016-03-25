@@ -11,6 +11,7 @@
 #include "hashtables.h"
 #include "glut.h"
 
+
 using namespace std;
 stringstream ss;
 
@@ -24,8 +25,8 @@ stringstream ss;
 //5 takes in number
 
 //Words that are prevented from being used as variable names.
-extern const std::string globclist[] = { "PRINT", "?", "CLS", "END", "GOTO", "STOP", "IF", "THEN", "ELSE", "INPUT", "GOSUB", "RETURN", "FOR", "TO", "NEXT", "WAIT", "VSYNC", "REM", "SWAP", "GCLS", "GBOX", "GCOLOR", "GCIRCLE", "LOCATE", "PNLSTR", "GPSET" };
-extern const int globcnum = 26;
+extern const std::string globclist[] = { "PRINT", "?", "CLS", "END", "GOTO", "STOP", "IF", "THEN", "ELSE", "INPUT", "GOSUB", "RETURN", "FOR", "TO", "NEXT", "WAIT", "VSYNC", "REM", "SWAP", "GCLS", "GBOX", "GCOLOR", "GCIRCLE", "LOCATE", "PNLSTR", "GPSET", "DIM", "GPAGE", "ACLS" };
+extern const int globcnum = 28;
 extern const std::string globvlist[] = { "TRUE", "FALSE", "RND", "PI", "ERR", "ERL", "FLOOR", "ABS", "ATAN", "COS", "DEG", "EXP", "FREEMEM", "FREEVAR", "LOG", "RAD", "SGN", "SIN", "SQR", "TAN", "VERSION", "CANCEL", "ASC", "LEN", "VAL", "RESULT", "MAINCNTL", "BTRIG" };
 extern const int globvnum =                                                                                                                                                                                                    28;
 extern const std::string globslist[] = { "CHR", "DATE", "HEX", "LEFT", "MID", "PRGNAME", "RIGHT", "STR", "SUBST", "TIME"};
