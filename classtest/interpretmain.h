@@ -11,11 +11,8 @@
 #include "hashtables.h"
 #include "glut.h"
 
-
 using namespace std;
 stringstream ss;
-
-
 
 //Type
 //1 func or return value (0-1)
@@ -36,16 +33,12 @@ extern const int globmnum = 17 + 26; //(removed '(' and ')')
 extern const char globgluechars[] = { '+', '-', '*', '%', ',', '=', '%', '(', ')', '!', '~' };
 extern const int globgnum = 11;
 
-
-
 //Small enough list to hard code
 //extern const std::string globgluewords[] = { "AND", "OR", "NOT", "XOR" };
 //extern const int globgwnum = 4;
 
 extern std::string gPassString = "";
-
 extern bool globRESULT = 0;
-
 
 //Hash table function examples
 //
@@ -57,8 +50,6 @@ extern bool globRESULT = 0;
 
 hashtable Variable;
 hashtables Strings;
-
-
 
 extern int ug;
 extern std::string gFormulaToParse;
@@ -82,8 +73,6 @@ int u;
 char uc;
 bool synerr;
 int isEqualsCheck;
-
-
 
 int gosub[256];
 int gosubNu = 0;
