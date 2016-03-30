@@ -1,6 +1,5 @@
-acls
-print not 5
-
-@start
+@top
+b=btrig
+print b
 wait 1
-goto @start
+goto @top

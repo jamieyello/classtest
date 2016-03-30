@@ -4,20 +4,16 @@ Usage;
 
 Problems;
 -"print !!2" will print 2 not 1 (small innaccuracy)
--AND OR XOR only solves to 1 or 0
--END STOP crashes things
 
 Todo;
 -add ui
 -add support for PTC files and not just txt
 
 -data
--arrays
 -implement PRINT"", PRINT", ?"", ?"
 -dtread and tmread
 
 -remove excess parenthesis from math strings on SBarr set as it interferes with isString and isNumeric
--prevent system variables from being set in equalsSet
 
 
 Performance related (lower priority);
@@ -26,6 +22,9 @@ Performance related (lower priority);
 -improve performance by replacing all variables with shorter variables on setting SBarr
 -improve performance by converting PEMDAS to right to left (?)
 -dynamic recompilation
+
+Syntax error checks (lowest priority)
+-prevent system variables from being set in equalsSet
 
 Changelog;
 
@@ -80,8 +79,9 @@ Changelog;
 -' instead of REM
 -variables strings and labels can now have numbers in their names
 -variable arrays and string arrays added
--"Overall improved system stability." (fixed issue that randomly broke the program due to an array not being large enough)
+-"Overall improved system stability." (fixed huge issue that randomly broke the program due to an array not being large enough)
 -ACLS
+-BTRIG() see button mapping in readme
 -AND OR XOR NOT now return binary bitwise results and work correctly
 
 
@@ -229,7 +229,7 @@ str$="string" [o]
 
 ---input--- (do later)-------------------------------------------------------
 --return values
-btrig() []
+btrig() [0]
 button() []
 inkey$() []
 instr() []
@@ -271,7 +271,7 @@ sphitx []
 sphity []
 
 --graphical
-acls []
+acls [x]
 
 bgclip []
 bgcopy []
