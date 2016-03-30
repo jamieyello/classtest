@@ -14,7 +14,7 @@ int main(int iArgc, char** cppArgv)
 	cout << "Alt + Tab and close the console window if opengl window is unresponsive\n\n";
 	//Testing area, reserved for testing new functions-------
 
-	//cout << solve("!(0)") << endl;
+	//cout << (4 & 5)*5 << endl;
 
 	//cout << getIndex("ACLS") << endl;
 
@@ -85,8 +85,8 @@ int main(int iArgc, char** cppArgv)
 
 				//Replace '!=' with '~D~'
 				if (readline[i] == '=' && Dequals){ Dequals = 0; stack.replace(stack.size() - 1, stack.size(), "~"); srepl = "D~"; }
-				if (readline[i] == '!'){
-
+				if (readline[i] == '!')
+				{
 					Dequals = 1;
 				}
 				else
@@ -1143,12 +1143,14 @@ double solve(std::string str){
 			if (str[i + 1] == 'A'){ 
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
-				return solve(firstHalf) && solve(secondHalf);
+
+
+				return (int)solve(firstHalf) & (int)solve(secondHalf);
 			}
 			if (str[i + 1] == 'N'){
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
-				return -solve(secondHalf);
+				return ~(int)solve(secondHalf);
 			}
 			if (str[i + 1] == 'O'){
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
@@ -1158,7 +1160,8 @@ double solve(std::string str){
 			if (str[i + 1] == 'X'){
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
-				return !solve(firstHalf) != !solve(secondHalf);
+				return (int)solve(firstHalf) ^ (int)solve(secondHalf);
+				//return !solve(firstHalf) != !solve(secondHalf);
 			}
 			if (str[i + 1] == 'E'){
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
@@ -1591,8 +1594,6 @@ void GPSET(std::string sentcontent){
 
 
 //OpenGL rendering code here
-
-
 
 void Draw() {
 	//glutKeyboardFunc(processNormalKeys);

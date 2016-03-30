@@ -82,6 +82,7 @@ Changelog;
 -variable arrays and string arrays added
 -"Overall improved system stability." (fixed issue that randomly broke the program due to an array not being large enough)
 -ACLS
+-AND OR XOR NOT now return binary bitwise results and work correctly
 
 
 Running 3DED;
@@ -170,10 +171,10 @@ version [o]
 
 
 --operators
-and [x] ~A~ returns 0 or 1 only
+and [o] ~A~
 not [o] ~N~
-or [x] ~O~ returns 0 or 1 only
-xor [?] ~X~ returns 0 or 1 only
+or [o] ~O~
+xor [o] ~X~
 == [o] ~E~
 != [o] ~D~
 >= [o] ~S~
