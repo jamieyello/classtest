@@ -41,6 +41,7 @@ int main(int iArgc, char** cppArgv)
 	bool Eequals = 0;
 	bool Sequals = 0;
 	bool Mequals = 0;
+	std::string temps = "";
 
 	std::string gnextpass;
 
@@ -54,23 +55,33 @@ int main(int iArgc, char** cppArgv)
 		gnext = 0; //Resetting space removal flags
 		glast = 0;
 
-
 		gPassString = "";
 
 		for (int i = 0; i <= readline.size(); i++){
 
 			if (readline[i] != ' ' && readline[i] != '	' && i < readline.size() && readline[i] != ':'){
 
+
+
+
 				//Skip quotes
 				if (readline[i] == quoteChar()){
-					i++;
-					stack += quoteChar();
-					while (readline[i] != quoteChar() && i < readline.size()){
-						stack += readline[i];
+					if (caps(stack) == "PRINT" || stack == "?"){
+						//cout << "print' detected\n";
+						readline.insert(i, " ");
+						i--;
+						stack.replace(i, stack.size(), "");
+					}
+					else{
 						i++;
+						stack += quoteChar();
+						while (readline[i] != quoteChar() && i < readline.size()){
+							stack += readline[i];
+							i++;
+						}
+						if (readline[readline.size() - 1] != quoteChar()){ readline += quoteChar(); }
 					}
 				}
-
 				//Replace '==' with '~E~'
 
 				if (readline[i] == '='){

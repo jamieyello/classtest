@@ -1,5 +1,8 @@
+
+?"stuff fd
+
+
+print "done"
 @top
-b=btrig
-print b
 wait 1
 goto @top

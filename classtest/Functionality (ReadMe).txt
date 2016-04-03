@@ -4,13 +4,14 @@ Usage;
 
 Problems;
 -"print !!2" will print 2 not 1 (small innaccuracy)
+-opengl window sometimes becomes unresponsive
+-program uses up too much cpu power (unthrottled)
 
 Todo;
 -add ui
 -add support for PTC files and not just txt
 
 -data
--implement PRINT"", PRINT", ?"", ?"
 -dtread and tmread
 
 -remove excess parenthesis from math strings on SBarr set as it interferes with isString and isNumeric
@@ -83,7 +84,8 @@ Changelog;
 -ACLS
 -BTRIG() see button mapping in readme
 -AND OR XOR NOT now return binary bitwise results and work correctly
-
+-unclosed text strings (PRINT "text)
+-PRINT "text" and ? "text" now work without spaces (PRINT"text")
 
 Running 3DED;
 PNLSTR needs to be put on console [x]
@@ -94,8 +96,8 @@ string arrays [o]
 GPSET [o]
 BUTTON() and BTRIG() [x]
 DIM [x]
-?"text []
-?var []
+?"text [o]
+?var [o]
 ?var var string$ var []
 LOCATE [x]
 
@@ -193,7 +195,7 @@ string arrays [o]
 --core
 clear [] needs more effort from me
 data [] needs data
-dim [] needs arrays
+dim []
 dtread [] needs compilation workaround (really weird format)
 else [o]
 end [o]

@@ -1,4 +1,4 @@
-﻿Build started 3/30/2016 2:01:53 AM.
+﻿Build started 4/2/2016 9:52:00 PM.
      1>Project "C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\classtest.vcxproj" on node 2 (Build target(s)).
      1>Link:
          classtest.vcxproj -> C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\Release\SBInterpret.exe
@@ -6,4 +6,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.22
+Time Elapsed 00:00:00.04
