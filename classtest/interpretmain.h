@@ -22,8 +22,8 @@ stringstream ss;
 //5 takes in number
 
 //Words that are prevented from being used as variable names.
-extern const std::string globclist[] = { "PRINT", "?", "CLS", "END", "GOTO", "STOP", "IF", "THEN", "ELSE", "INPUT", "GOSUB", "RETURN", "FOR", "TO", "NEXT", "WAIT", "VSYNC", "REM", "SWAP", "GCLS", "GBOX", "GCOLOR", "GCIRCLE", "LOCATE", "PNLSTR", "GPSET", "DIM", "GPAGE", "ACLS" };
-extern const int globcnum = 28;
+extern const std::string globclist[] = { "PRINT", "?", "CLS", "END", "GOTO", "STOP", "IF", "THEN", "ELSE", "INPUT", "GOSUB", "RETURN", "FOR", "TO", "NEXT", "WAIT", "VSYNC", "REM", "SWAP", "GCLS", "GBOX", "GCOLOR", "GCIRCLE", "LOCATE", "PNLSTR", "GPSET", "DIM", "GPAGE", "ACLS", "DATA", "READ", "RESTORE" };
+extern const int globcnum = 32;
 extern const std::string globvlist[] = { "TRUE", "FALSE", "RND", "PI", "ERR", "ERL", "FLOOR", "ABS", "ATAN", "COS", "DEG", "EXP", "FREEMEM", "FREEVAR", "LOG", "RAD", "SGN", "SIN", "SQR", "TAN", "VERSION", "CANCEL", "ASC", "LEN", "VAL", "RESULT", "MAINCNTL", "BTRIG" };
 extern const int globvnum =                                                                                                                                                                                                    28;
 extern const std::string globslist[] = { "CHR", "DATE", "HEX", "LEFT", "MID", "PRGNAME", "RIGHT", "STR", "SUBST", "TIME"};
@@ -82,7 +82,13 @@ double sbforStep[256];
 int sbforNu = 0;
 int cTableSize = 200;
 
-//int dataLoc[2000]; //Probably needs a better way to determine the size but whatever
+//Array that stores addresses where DATA commands are for faster reading
+int DATALoc[10000]; //Probably needs a better way to determine the size, will break if limit is passed
+int DATALine = 0;
+int DATALinePos = 0;
+
+bool getCommadContentEnd = 0;
+std::string DATAreadData;
 
 //Function prototypes
 int interpretMain(int &);

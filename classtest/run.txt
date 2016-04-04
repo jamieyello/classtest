@@ -1,8 +1,5 @@
+print "printing stuff"
 
-?"stuff fd
-
-
-print "done"
-@top
+@loop
 wait 1
-goto @top
+goto @loop

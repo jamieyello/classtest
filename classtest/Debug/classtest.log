@@ -1,32 +1,35 @@
-﻿Build started 3/25/2016 2:27:17 AM.
+﻿Build started 4/4/2016 7:30:28 PM.
      1>Project "C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\classtest.vcxproj" on node 2 (Build target(s)).
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (classtest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SBInterpret.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt interpretmain.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SBInterpret.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt interpretmain.cpp
          interpretmain.cpp
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(61): warning C4018: '<=' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(63): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(69): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(653): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(685): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(702): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(716): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(725): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(732): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(736): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(741): warning C4018: '<=' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(814): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(836): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(848): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1066): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1113): error C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\time.inl(112) : see declaration of 'localtime'
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1222): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1247): warning C4804: '/=' : unsafe use of type 'bool' in operation
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1277): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1371): warning C4018: '<' : signed/unsigned mismatch
-     1>Done Building Project "C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\classtest.vcxproj" (Build target(s)) -- FAILED.
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(65): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(67): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(83): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(715): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(747): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(764): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(778): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(787): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(794): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(798): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(803): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(876): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(898): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(910): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1131): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1290): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1315): warning C4804: '/=' : unsafe use of type 'bool' in operation
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1345): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\dt\documents\visual studio 2013\projects\classtest\classtest\interpretmain.cpp(1439): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\Debug\SBInterpret.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\Debug\SBInterpret.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\Debug\SBInterpret.lib" /MACHINE:X86 Debug\hashtable.obj
+         Debug\hashtables.obj
+         Debug\interpretmain.obj
+         Debug\stdafx.obj
+         classtest.vcxproj -> C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\Debug\SBInterpret.exe
+     1>Done Building Project "C:\Users\DT\Documents\Visual Studio 2013\Projects\classtest\classtest\classtest.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.31
+Time Elapsed 00:00:00.62

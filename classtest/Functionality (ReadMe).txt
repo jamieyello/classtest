@@ -11,21 +11,24 @@ Todo;
 -add ui
 -add support for PTC files and not just txt
 
--data
 -dtread and tmread
+-string$==string2$
+-print string$ value string$
+-unclosed parenthesis
 
 -remove excess parenthesis from math strings on SBarr set as it interferes with isString and isNumeric
 
 
 Performance related (lower priority);
--improve performance by replacing IF (SBarr[line] == "COMMAND"){}'s with switch statements
+-improve performance by replacing IF (SBarr[line] == "COMMAND"){}'s with switch statements (doesn't have a huge impact)
 -improve performance by using Variable.FindVal() for isFunc() and related commands
 -improve performance by replacing all variables with shorter variables on setting SBarr
--improve performance by converting PEMDAS to right to left (?)
+-improve performance by converting PEMDAS to right to left (I don't know if that's even possible)
 -dynamic recompilation
 
 Syntax error checks (lowest priority)
 -prevent system variables from being set in equalsSet
+-many synatax error checks missing
 
 Changelog;
 
@@ -84,8 +87,9 @@ Changelog;
 -ACLS
 -BTRIG() see button mapping in readme
 -AND OR XOR NOT now return binary bitwise results and work correctly
--unclosed text strings (PRINT "text)
+-unclosed text strings (PRINT "text) (reverted)
 -PRINT "text" and ? "text" now work without spaces (PRINT"text")
+-DATA READ RESTORE
 
 Running 3DED;
 PNLSTR needs to be put on console [x]
@@ -177,7 +181,7 @@ and [o] ~A~
 not [o] ~N~
 or [o] ~O~
 xor [o] ~X~
-== [o] ~E~
+== [x] ~E~ (string to binary result not implemented STRING!$=="Text")
 != [o] ~D~
 >= [o] ~S~
 <= [o] ~M~
@@ -185,7 +189,7 @@ xor [o] ~X~
 < [o] ~P~
 ! [0] !!2 equals 2 when it should equal 1
 +,-,/,*,% [x] * needs to be implemented for strings
-plain numbers [0]
+plain numbers [0] not tied to PTC's limitations
 variables [o]
 variables arrays [o]
 strings [o]
@@ -194,7 +198,7 @@ string arrays [o]
 
 --core
 clear [] needs more effort from me
-data [] needs data
+data [o]
 dim []
 dtread [] needs compilation workaround (really weird format)
 else [o]
@@ -211,12 +215,12 @@ if then ... else ... [o]
 next [o]
 on goto [o]
 on gosub [o]
-read [] needs data
+read [o]
 rem/' [o]
-restore [] needs data
+restore [o]
 return [o]
-rsort [] needs arrays
-sort [] needs arrays
+rsort [] needs dim
+sort [] needs dim
 step [o]
 stop [0]
 swap [o]

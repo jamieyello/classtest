@@ -7,16 +7,21 @@
 int main(int iArgc, char** cppArgv)
 {
 	setDefaultArrs();
-	cout << "-------SBInterpret 0.6-------\n";
-	cout << "core: mostly finished\n";
-	cout << "graphics: GLINE and GCLS only\n\n";
+	cout << "-------SBInterpret 0.7-------\n";
+	cout << "Only supports Petit Computer SmileBASIC as of now\n";
+	cout << "core: mostly functional\n";
+	cout << "graphics: Graphics page only\n\n";
 	cout << "Edit 'run.txt' and see 'Functionality (ReadMe).txt' for usage\n\n";
 	cout << "Alt + Tab and close the console window if opengl window is unresponsive\n\n";
 	//Testing area, reserved for testing new functions-------
 
-	//cout << (4 & 5)*5 << endl;
+	//std::string test = "\"TEXT\",3,4";
+	//cout << "test = " + test << endl;
+	//cout << "GCC=" << getCommadContent(test, 0) << endl;
+	//cout << getCommadContentEnd << endl;
 
-	//cout << getIndex("ACLS") << endl;
+
+	//cout << getIndex("RESTORE") << endl;
 
 	//system("pause");
 	//-------------------------------------------------------
@@ -66,7 +71,7 @@ int main(int iArgc, char** cppArgv)
 
 				//Skip quotes
 				if (readline[i] == quoteChar()){
-					if (caps(stack) == "PRINT" || stack == "?"){
+					if (caps(stack) == "PRINT" || stack == "?" || stack == "DATA"){
 						//cout << "print' detected\n";
 						readline.insert(i, " ");
 						i--;
@@ -79,7 +84,7 @@ int main(int iArgc, char** cppArgv)
 							stack += readline[i];
 							i++;
 						}
-						if (readline[readline.size() - 1] != quoteChar()){ readline += quoteChar(); }
+						//if (readline[readline.size() - 1] != quoteChar()){ readline += quoteChar(); }
 					}
 				}
 				//Replace '==' with '~E~'
@@ -145,7 +150,7 @@ int main(int iArgc, char** cppArgv)
 			}
 			else{
 
-				if (stack[0] != quoteChar()) removeSpaces(stack); //Remove spaces unless the first character is ". Probably not needed since spaces are filtered out before here.
+				//if (stack[0] != quoteChar()) removeSpaces(stack); //Remove spaces unless the first character is ". Probably not needed since spaces are filtered out before here.
 
 				if (stack != ""){
 
@@ -243,6 +248,9 @@ int main(int iArgc, char** cppArgv)
 	//printPRG(SBarr, pLength, SBarrLine);
 	//cout << getIndex("DIM") << endl;
 	//cout << "\nDone\n";
+	
+	//cout << getCommadContent(SBarr[29],1) << endl;
+	
 	//system("pause");
 
 
@@ -339,6 +347,50 @@ int interpretMain(int &line){
 	case 218://DIM
 		addline++;
 		//cout << "Unsupported command DIM\n";
+		synerr = 0;
+		break;
+
+	//DATA and READ related
+
+	case 282: //DATA
+		addline++;
+		synerr = 0;
+		break;
+
+	case 284: //READ
+	{addline++;
+	synerr = 0;
+
+
+	do{
+		if (DATALinePos == 0){
+			do { DATALine++; } while (SBarr[DATALine] != "DATA");
+			DATALinePos = 1;
+		}
+		//cout << "DATALinePos = " << DATALinePos << endl;
+		DATAreadData = getCommadContent(SBarr[DATALine + 1], DATALinePos - 1);
+		DATALinePos++;
+		if (getCommadContentEnd){ DATALinePos = 0; }
+	} while (getCommadContentEnd);
+
+	//cout << "READ triggered\n";
+
+	std::string DATAequalsetstring = SBarr[line + 1] + "=" + DATAreadData;
+
+	//cout << "equalsetstring = " << DATAequalsetstring << endl;
+
+	int isEqualsCheck = isEquals(DATAequalsetstring);
+	if (isEqualsCheck){ equalsSet(DATAequalsetstring, isEqualsCheck); synerr = 0; }
+
+	}
+	break;
+
+	case 548: //RESTORE
+
+		DATALine = Variable.FindVal(SBarr[line + 1]);
+		DATALinePos = 0;
+
+		addline++;
 		synerr = 0;
 		break;
 
@@ -850,7 +902,7 @@ std::string getQuotes(std::string str, int &strPos){
 
 //Get Comma'd content
 std::string getCommadContent(std::string str, int pos = 0){
-	
+	getCommadContentEnd = 0;
 	std::string result = "";
 	int com = 0;
 	bool reqquote = 0;
@@ -858,16 +910,19 @@ std::string getCommadContent(std::string str, int pos = 0){
 	for (int u = 0; u < str.size(); u++){
 		
 
-		if (str[u] == quoteChar()){ reqquote = !reqquote; }
+		if (str[u] == '/"'){ reqquote = !reqquote; }
 
 		if (str[u] == '('){ reqpara++; }
 		if (str[u] == ')'){ reqpara--; }
 
 		if (str[u] == ',' && reqquote == 0 && reqpara == 0){ com++; u++; }
 		if (com == pos){ result += str[u]; }
+
+		
 	}
 
-
+	//cout << "reqquote = " << reqquote << endl;
+	if (pos > com){ getCommadContentEnd = 1; }
 	return result;
 }
 
