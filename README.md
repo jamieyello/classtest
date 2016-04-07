@@ -2,7 +2,6 @@
 A SmileBASIC interpreter
 
 Usage;
--Command prompt only as of now, that will change later.
 -Open "run.txt", edit as if it were a SB program.
 
 Problems;
