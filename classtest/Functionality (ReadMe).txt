@@ -5,16 +5,21 @@ Usage;
 Problems;
 -"print !!2" will print 2 not 1 (small innaccuracy)
 -opengl window sometimes becomes unresponsive
--program uses up too much cpu power (unthrottled)
+-program uses up too much cpu power (incorrectly throttled)
+
+Compiling;
+You'll need glut before you can compile (follow this tutorial, ignore everything he says about visual studio and just put the glut files in the right places)
+https://www.youtube.com/watch?v=TH_hA_Sru6Q
+
+I'm also using VS 2013 if that makes any difference.
 
 Todo;
 -add ui
 -add support for PTC files and not just txt
 
--dtread and tmread
--string$==string2$
+-DIM
 -print string$ value string$
--unclosed parenthesis
+-unclosed quotes
 
 -remove excess parenthesis from math strings on SBarr set as it interferes with isString and isNumeric
 
@@ -90,6 +95,8 @@ Changelog;
 -unclosed text strings (PRINT "text) (reverted)
 -PRINT "text" and ? "text" now work without spaces (PRINT"text")
 -DATA READ RESTORE
+-TMREAD and DTREAD
+-"Text"=="Text", "Text"!="Text", "Text">"Text", "Text"<"Text", "Text">="Text", "Text"<="Text" logical text operators
 
 Running 3DED;
 PNLSTR needs to be put on console [x]
@@ -181,7 +188,7 @@ and [o] ~A~
 not [o] ~N~
 or [o] ~O~
 xor [o] ~X~
-== [x] ~E~ (string to binary result not implemented STRING!$=="Text")
+== [x] ~E~
 != [o] ~D~
 >= [o] ~S~
 <= [o] ~M~
@@ -200,7 +207,7 @@ string arrays [o]
 clear [] needs more effort from me
 data [o]
 dim []
-dtread [] needs compilation workaround (really weird format)
+dtread [o]
 else [o]
 end [o]
 for to step [o]
@@ -225,7 +232,7 @@ step [o]
 stop [0]
 swap [o]
 then [o]
-tmread [] needs compilation workaround (really weird format)
+tmread [o]
 to [o]
 vsync [x]
 wait [o]

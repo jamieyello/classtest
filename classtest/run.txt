@@ -1,5 +1,14 @@
-print "printing stuff"
+u=1
 
-@loop
-wait 1
-goto @loop
+clear
+
+print u
+
+u$=time$
+
+print (u$==time$)*2
+print (u$!=time$)*2
+print (u$<=time$)*2
+print (u$>=time$)*2
+print (u$>time$)*2
+print (u$<time$)*2

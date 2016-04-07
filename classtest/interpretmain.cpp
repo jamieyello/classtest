@@ -17,11 +17,11 @@ int main(int iArgc, char** cppArgv)
 
 	//std::string test = "\"TEXT\",3,4";
 	//cout << "test = " + test << endl;
-	//cout << "GCC=" << getCommadContent(test, 0) << endl;
-	//cout << getCommadContentEnd << endl;
+	//cout << "GCC=" << isFunc("TMREAD(ihih)") << endl;
+	//cout << "getElem() " << getElem("E$+EE$~E~") << endl;
 
-
-	//cout << getIndex("RESTORE") << endl;
+	
+	cout << getIndex("CLEAR") << endl;
 
 	//system("pause");
 	//-------------------------------------------------------
@@ -344,6 +344,26 @@ int interpretMain(int &line){
 	addline++; }
 	break;
 
+	case 445: //TMREAD
+	{std::string TMREADTIME = getString(getParenthesis(SBarr[line], 6));
+
+	equalsSet(getCommadContent(SBarr[line], 1) + "=" + TMREADTIME.substr(0, 2), 1);
+	equalsSet(getCommadContent(SBarr[line], 2) + "=" + TMREADTIME.substr(3, 2), 1);
+	equalsSet(getCommadContent(SBarr[line], 3) + "=" + TMREADTIME.substr(6, 2), 1);
+	synerr = 0;
+	}
+		break;
+
+	case 436: //DTREAD
+	{std::string DTREADDATE = getString(getParenthesis(SBarr[line], 6));
+
+	equalsSet(getCommadContent(SBarr[line], 1) + "=" + DTREADDATE.substr(0, 4), 1);
+	equalsSet(getCommadContent(SBarr[line], 2) + "=" + DTREADDATE.substr(5, 2), 1);
+	equalsSet(getCommadContent(SBarr[line], 3) + "=" + DTREADDATE.substr(8, 2), 1);
+	synerr = 0;
+	}
+		break;
+
 	case 218://DIM
 		addline++;
 		//cout << "Unsupported command DIM\n";
@@ -573,7 +593,7 @@ int interpretMain(int &line){
 		}
 
 	}
-	else{//Goto is assumed
+	else{//GOTO is assumed
 		synerr = 0;
 		std::string gotlabel = getCommadContent(SBarr[line + 3], onvar);
 
@@ -732,8 +752,12 @@ int getElem(std::string str){
 	return 0;
 }
 
+//Bottleneck with easy fix
 bool isFunc(std::string us){
 	bool ret = 0;
+	
+	if (us[6] == '('){ us.replace(6, us.size(), ""); }
+	
 	for (int u = 0; u < globcnum; u++){
 		if (us == globclist[u]){ ret = 1; break; }
 	}
@@ -765,7 +789,8 @@ for (u1 = 0; u1 < us.size(); u1++){ //Going through the string
 	for (u = 0; u < globmnum; u++){ //Going through the valid characters
 	
 			if (us[u1] == globmlist[u]){ mathchars += 1; }	
-			
+			if (us[u1] == '~'){ mathchars += us.size(); }
+
 			if (us[u1] == '('){
 				std::string hh = us;
 				std::string getp = getParenthesis(hh.replace(0, u1, ""),0);
@@ -1129,6 +1154,7 @@ int getIndex(std::string key){
 	int hash = 0;
 	int index;
 	for (int i = 0; i < key.length(); i++){
+		if (key[i] == '('){ break; }
 		hash += (int)key[i];
 
 	}
@@ -1218,45 +1244,51 @@ double solve(std::string str){
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
 				return ~(int)solve(secondHalf);
 			}
-			if (str[i + 1] == 'O'){
+			if (str[i + 1] == 'O'){ // OR
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
-				return solve(firstHalf) || solve(secondHalf);
+				return (int)solve(firstHalf) | (int)solve(secondHalf);
 			}
-			if (str[i + 1] == 'X'){
+			if (str[i + 1] == 'X'){ // XOR
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
 				return (int)solve(firstHalf) ^ (int)solve(secondHalf);
 				//return !solve(firstHalf) != !solve(secondHalf);
 			}
-			if (str[i + 1] == 'E'){
+			if (str[i + 1] == 'E'){ // ==
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
+				if (isString(firstHalf)){ return getString(firstHalf) == getString(secondHalf); }
 				return solve(firstHalf) == solve(secondHalf);
 			}
-			if (str[i + 1] == 'D'){
+			if (str[i + 1] == 'D'){ // !=
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
+				if (isString(firstHalf)){ return getString(firstHalf) != getString(secondHalf); }
 				return solve(firstHalf) != solve(secondHalf);
 			}
-			if (str[i + 1] == 'S'){
+			if (str[i + 1] == 'S'){ // >=
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
+				if (isString(firstHalf)){ return getString(firstHalf).size() >= getString(secondHalf).size(); }
 				return solve(firstHalf) >= solve(secondHalf);
 			}
-			if (str[i + 1] == 'M'){
+			if (str[i + 1] == 'M'){ //<=
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
+				if (isString(firstHalf)){ return getString(firstHalf).size() <= getString(secondHalf).size(); }
 				return solve(firstHalf) <= solve(secondHalf);
 			}
-			if (str[i + 1] == 'L'){
+			if (str[i + 1] == 'L'){ // >
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
+				if (isString(firstHalf)){ return getString(firstHalf).size() > getString(secondHalf).size(); }
 				return solve(firstHalf) > solve(secondHalf);
 			}
-			if (str[i + 1] == 'P'){
+			if (str[i + 1] == 'P'){ // <
 				std::string firstHalf = str; firstHalf.replace(i, str.size(), "");
 				std::string secondHalf = str; secondHalf.replace(0, i + 3, "");
+				if (isString(firstHalf)){ return getString(firstHalf).size() < getString(secondHalf).size(); }
 				return solve(firstHalf) < solve(secondHalf);
 			}
 
@@ -1571,7 +1603,7 @@ void sbINPUT(std::string varToSet){
 }
 
 
-//Graphic commands need to write to their own buffers but for now they just write directly to the main screen
+//All graphic commands need to write to their own buffers but for now they just write directly to the main one
 void GCOLOR(int num){
 	globGCOLOR = num;
 
